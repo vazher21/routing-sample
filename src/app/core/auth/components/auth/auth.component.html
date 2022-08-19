@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <h1>{{ mode === "login" ? "Log in" : "Register" }}</h1>
+  <button (click)="mode = 'register'">Register</button>
+  <button (click)="mode = 'login'">Log in</button>
+
+  <app-login *ngIf="mode === 'login'" (logIn)="onLogin($event)"></app-login>
+  <app-register
+    *ngIf="mode === 'register'"
+    (registered)="onRegister($event)"
+  ></app-register>
+</div>

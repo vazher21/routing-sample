@@ -1,0 +1,10 @@
+<header>
+  <h1>App</h1>
+  <nav>
+    <ul>
+      <li *ngIf="loggedIn$ | async; else login" (click)="logout()">Log Out</li>
+      <ng-template #login> <li routerLink="auth">Log in</li> </ng-template>
+      <li *ngIf="displayCurrency$ | async" routerLink="currency">Currencies</li>
+    </ul>
+  </nav>
+</header>
