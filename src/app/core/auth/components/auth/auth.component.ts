@@ -28,7 +28,7 @@ export class AuthComponent implements OnInit {
       .pipe(
         tap((res) => {
           if (res) {
-            alert('success');
+            console.log('success');
             this.mode = 'login';
           }
         })
@@ -43,11 +43,9 @@ export class AuthComponent implements OnInit {
         tap((v) => {
           if (v) {
             this.userService.logIn(v);
-            alert('success login');
             this.router.navigateByUrl('currency');
             return;
           }
-          alert('incorrect password or email :(');
         })
       )
       .subscribe();

@@ -8,7 +8,7 @@ import {
   UrlSegment,
   UrlTree,
 } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { map, Observable, take } from 'rxjs';
 import { UserService } from '../services';
 
 @Injectable({
@@ -26,7 +26,7 @@ export class SalaryGuard implements CanLoad {
     | boolean
     | UrlTree {
     return this.userService.loggedInUser$.pipe(
-      map((user) => user!.salary > 400)
+      map((user) => !!user && user.salary > 400)
     );
   }
 }
